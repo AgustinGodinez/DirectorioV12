@@ -17,14 +17,13 @@
       <tr *ngFor="let user of users">
       <td>{{user.name}}</td>
       <td>{{user.email}}</td>
-      <td style="width: 20%;" >
-        <select class="form-control mx-1" style="border: 1px solid;" [(ngModel)]="user.roles.rol"  name="roles" (ngModelChange)="onPreUpdateUser(user)">
+      <td >
+        <select class="form-control linea"  style="border: 1px solid; width: 40%; margin-right: 2%;" [(ngModel)]="user.roles.rol"  name="roles" (ngModelChange)="onPreUpdateUser(user)">
           <option type="submit" value='admin'>Con permisos de administrador</option>
           <option  type="submit" value='usuario'>Sin permisos de administrador</option>
           <option  type="submit" value='inhabilita'>inhabilitar cuenta</option>
         </select>
-        <br>
-        <button type="button" class="btn btn-outline-dark" style="width: 100%;" (click)="resetPass(user)">Cambiar Contraseña</button>
+        <button type="button linea" class="btn btn-outline-dark"  (click)="resetPass(user)">Cambiar Contraseña</button>
       </td>
 
       </tr>

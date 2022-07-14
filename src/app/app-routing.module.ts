@@ -6,6 +6,8 @@ import { LoginComponent } from './components/users/login/login.component';
 import { RegisterComponent } from './components/users/register/register.component';
 import { ListUsersComponent } from './components/list-users/list-users.component';
 import { AuthGuard } from './guards/auth.guard';
+import { ResetPassComponent } from './components/reset-pass/reset-pass.component';
+
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path:'home', component: HomeComponent },// todo el mundo
@@ -13,6 +15,7 @@ const routes: Routes = [
   { path:'login', component: LoginComponent },
   { path:'users', component: ListUsersComponent, canActivate:[AuthGuard]},
   { path:'register', component: RegisterComponent },
+  { path:'reset', component: ResetPassComponent },
   {path:'**', redirectTo:'/login', pathMatch:'full'}
 ];
 

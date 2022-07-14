@@ -23,10 +23,20 @@ export class AuthService {
       err=>reject(err))
     })
   }
+
   async onReset(user:UserInterface){
     try{
       console.log(user.email);
       return this.afsAuth.sendPasswordResetEmail(user.email)
+    }catch(error){
+      console.log(error);
+    }
+  }
+
+  async onResetUser(email: string){
+    try{
+      console.log(email);
+      return this.afsAuth.sendPasswordResetEmail(email)
     }catch(error){
       console.log(error);
     }

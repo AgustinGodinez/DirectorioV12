@@ -24,6 +24,7 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage' ;
 import {NgxPaginationModule} from 'ngx-pagination';
 import { NgbModule, NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgToastModule } from 'ng-angular-popup';
+import { ResetPassComponent } from './components/reset-pass/reset-pass.component';
 
 
 
@@ -39,7 +40,8 @@ import { NgToastModule } from 'ng-angular-popup';
     FilterPipe,
     PipeAdminPipe,
     PipeUserFilterPipe,
-    PipeUserPipe
+    PipeUserPipe,
+    ResetPassComponent
   ],
   imports: [
     BrowserModule,
