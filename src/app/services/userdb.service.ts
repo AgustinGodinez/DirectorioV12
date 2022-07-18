@@ -25,7 +25,7 @@ export class UserdbService {
     );
   }
 
-  createDoc(data:any, path: string, id:string){
+  createDoc(data:any, path: string, id:any){
     const collection = this.afs.collection(path);
     return collection.doc(id).set(data)
    }
