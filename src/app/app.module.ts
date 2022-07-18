@@ -25,6 +25,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { NgbModule, NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgToastModule } from 'ng-angular-popup';
 import { ResetPassComponent } from './components/reset-pass/reset-pass.component';
+import { HttpClientModule } from '@angular/common/http'
 
 
 
@@ -54,6 +55,7 @@ import { ResetPassComponent } from './components/reset-pass/reset-pass.component
     NgxPaginationModule,
     NgbModule,
     NgToastModule,
+    HttpClientModule,
   ],
   providers: [AngularFireAuth,AngularFirestore],
   bootstrap: [AppComponent]

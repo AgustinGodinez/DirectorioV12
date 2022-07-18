@@ -30,7 +30,7 @@
       
       <br/>
       <br/>
-    <table class="table table-striped text-center">
+    <table class="table table-striped">
     <thead class="table-dark">
       <tr>
         <th>Nombre Completo</th>
@@ -64,11 +64,11 @@
       <td>{{item.Telefono_familiar}}</td>
       <td>{{item.activo}}</td>
       <td class="p-1" style="margin-left: 2px;">
-<!--        <button type="button" class="btn btn-outline-dark " (click)="openEditar(content,item) " >Editar</button>
-       <button type="button" class="btn btn-outline-dark" (click)="openEditar(content5,item)">Crear cuenta </button> -->
+<!--        <button type="button" class="btn btn-outline-dark" (click)="openEditar(content,item)">Editar</button>
+       <button type="button" class="btn btn-outline-dark" (click)="editarStatus(content2,item)">Cambiar Estatus</button>
+       <button type="button" class="btn btn-outline-dark" (click)="openEditar(content,item)">Crear cuenta </button> -->
        <i class="bi bi-pencil-square" style="font-size: 200%; margin-right: 6px;" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar" (click)="openEditar(content,item)"></i>
        <i class="bi bi-person-plus" style="font-size: 200%;" data-bs-toggle="tooltip" data-bs-placement="top" title="Crear Cuenta"(click)="openEditar(content5,item)"></i>
-       
       </td>
   </tr>
     
@@ -84,7 +84,7 @@
         <h4 class="modal-title" id="modal-basic-title">Editar Empleado</h4>
         <button type="button" class="btn-close" aria-label="Close" (click)="closeClick()"></button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" style="overflow-y:auto; max-height:500px">
        <div class="form-group">
          <form [formGroup]="employeeForm" >
   
@@ -117,7 +117,7 @@
                 <input type="text" id="disabledTextInput" formControlName="proyecto_asignado2" class="form-control" >
               </div>
             </fieldset>
-              <label>Buscar proyecto</label>
+              <label>Cambiar proyecto:</label>
               <input type="text" id="proyectos" list="listaProyectos" class="form-control" [(ngModel)]="filterProyectos" formControlName="proyecto_asignado">
             <datalist id="listaProyectos" *ngIf="filterProyectos">
               <option *ngFor="let item of collection2.data2 | pipeUser:filterProyectos | paginate:configProyect">{{item.proyecto_asignado2}}</option>
@@ -139,7 +139,7 @@
                   <input type="text" id="disabledTextInput" formControlName="responsable_directo2" class="form-control" >
                 </div>
               </fieldset>
-              <label>Buscar Responsable Directo </label>
+              <label>Cambiar Responsable Directo </label>
               <input type="text" id="usuarios" list="listaUsuarios" class="form-control" [(ngModel)]="filterPost" formControlName="responsable_directo">
             <datalist id="listaUsuarios" *ngIf="filterPost">
               <option *ngFor="let item of collection.data | filter:filterPost| paginate:config2">{{item.nombre}}</option>
@@ -185,7 +185,7 @@
         <h4 class="modal-title" id="modal-basic-title">Agregar Empleado</h4>
         <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" style="overflow-y:auto; max-height:500px">
        <div class="form-group">
          <form [formGroup]="employeeForm" >
   
@@ -212,7 +212,7 @@
               <input type="date" formControlName="fecha_nacimiento" class="form-control">
             </div>
             <div class="form-group">
-              <label>Proyectos: </label>
+              <label>Seleccionar Proyecto: </label>
               
               <input type="text" id="proyectos" list="listaProyectos" class="form-control" [(ngModel)]="filterProyectos" formControlName="proyecto_asignado">
             <datalist id="listaProyectos" *ngIf="filterProyectos">
@@ -229,7 +229,7 @@
               <input type="date" formControlName="fecha_baja" class="form-control">
             </div>
             <div class="form-group">
-              <label>Responsable Directo </label>
+              <label> Seleccionar Responsable Directo </label>
               <input type="text" id="usuarios" list="listaUsuarios" class="form-control" [(ngModel)]="filterPost" formControlName="responsable_directo">
             <datalist id="listaUsuarios" *ngIf="filterPost">
               <option *ngFor="let item of collection.data | filter:filterPost| paginate:config2">{{item.nombre}}</option>
@@ -311,7 +311,7 @@
        <div class="form-group">
          <form [formGroup]="proyectForm" >
           <div class="form-group">
-            <label>Nuevo Cliente</label>
+            <label>Nuevo Proyecto</label>
             <input type="text" formControlName="proyecto_asignado2" class="form-control">
           </div>
           </form>
@@ -319,31 +319,11 @@
        </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-outline-dark" (click)="guardarProyecto()">Guardar Cliente</button>
+        <button type="button" class="btn btn-outline-dark" (click)="guardarProyecto()">Guardar Proyecto</button>
       </div>
     </ng-template>
   
-    <ng-template #content4 let-modal>
-      <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">Agregar Responsable_directo</h4>
-        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
-      </div>
-      <div class="modal-body">
-       <div class="form-group">
-         <form [formGroup]="responForm" >
-  
-            <div class="form-group">
-              <label>Responsable_directo</label>
-              <input type="text" formControlName="responsable_directo" class="form-control">
-            </div>
-          </form>
     
-       </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-outline-dark" (click)="guardarResponsable()">Guardar</button>
-      </div>
-    </ng-template>
 
     <!-- crear cuenta usuario -->
 
@@ -454,6 +434,7 @@
     
     
   </ng-template>
+  
   
   
   

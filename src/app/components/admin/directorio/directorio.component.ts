@@ -8,6 +8,8 @@ import * as Notiflix from 'notiflix';
 import { Router } from '@angular/router';
 import { UserdbService } from 'src/app/services/userdb.service';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { HttpClient } from '@angular/common/http';
+
 
 
 @Component({
@@ -58,7 +60,8 @@ export class DirectorioComponent implements OnInit {
     private authService: AuthService,
     private userdb:UserdbService,
     private router:Router,
-    private afsAuth:AngularFireAuth
+    private afsAuth:AngularFireAuth,
+    private httpclient:HttpClient
   ) {}
 
   filterPost = '';
@@ -485,33 +488,22 @@ guardarResponsable():void{
   /* para registar usuarios */
 
   async onAddUser(){
-    const res= await this.authService.registerUser(this.datos).catch((err) => {
-        console.log('error', this.alertMsg ='La dirección de correo electrónico ya está en uso por otra cuenta.', this.isAlert=true);
-      })
-    if(res){ 
-      console.log('exito al crear Usurio');   
+    Notiflix.Loading.standard('Cargando...')
+    let params={
+      email:this.datos.email,
+      password:this.datos.password,
+      name:this.datos.name
+    }    
+    this.httpclient.post('http://localhost:3000/signup', params).subscribe(resp=>{
+      Notiflix.Loading.remove();
       const path= 'users';
-      const id =res.user.uid;
+      const id =resp;
       this.datos.id=id;
       this.datos.name=this.datos.name;
       this.datos.password= this.datos.password;
-      this.datos.roles=this.datos.roles
-      await this.userdb.createDoc(this.datos,path,id);
-
-     this.authService.isAuth().subscribe(user =>{
-           if(user){
-                user.updateProfile({
-                    displayName:this.datos.name
-                }).then(res=>{
-                  this.router.navigate(['login']);
-                  location.reload()
-                  
-                })
-           }
-     })
-   }
-   this.afsAuth.signOut()
-   this.router.navigate(['login'])
+      this.datos.roles=this.datos.roles.rol=='usuario'
+      this.userdb.createDoc(this.datos,path,JSON.stringify(id));
+    })
   }
   /* &&&&&&&&&&&&&&&&&&& */
 
