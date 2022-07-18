@@ -372,6 +372,13 @@
                   </div>
               </div>
           </div>
+          <div class="mb-4">
+            <label for="password" class="form-label">Rol:</label>
+            <select  class="form-control mx-1" [(ngModel)]="datos.roles.rol"  name="roles">
+                <option  value=admin>Administrador</option>
+                <option  value=Usuario>Usuario</option>
+              </select>
+          </div>
       </form>
     
        </div>
