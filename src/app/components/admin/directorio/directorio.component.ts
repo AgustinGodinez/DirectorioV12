@@ -501,7 +501,7 @@ guardarResponsable():void{
       this.datos.id=id;
       this.datos.name=this.datos.name;
       this.datos.password= this.datos.password;
-      this.datos.roles=this.datos.roles.rol=='usuario'
+      this.datos.roles=this.datos.roles
       this.userdb.createDoc(this.datos,path,id);
     })
   }
