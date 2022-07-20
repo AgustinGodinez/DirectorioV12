@@ -488,22 +488,25 @@ guardarResponsable():void{
   /* para registar usuarios */
 
   async onAddUser(){
-    Notiflix.Loading.standard('Cargando...')
+    
     let params={
       email:this.datos.email,
       password:this.datos.password,
-      name:this.datos.name
+      name:this.datos.name,
+      roles:this.datos.roles
     }    
     this.httpclient.post('http://localhost:3000/signup', params).subscribe(resp=>{
-      Notiflix.Loading.remove();
+    
       const path= 'users';
       const id =resp;
       this.datos.id=id;
       this.datos.name=this.datos.name;
       this.datos.password= this.datos.password;
-      this.datos.roles=this.datos.roles
+      this.datos.roles=this.datos.roles;
       this.userdb.createDoc(this.datos,path,id);
     })
+    this.responForm.reset();
+    this.modalService.dismissAll();
   }
   /* &&&&&&&&&&&&&&&&&&& */
 
