@@ -376,11 +376,14 @@ guardarResponsable():void{
   }
 
   openEmpleado(contentAdd){
+    this.employeeForm.reset();
+    this.modalService.dismissAll();
     this.actualizar = false;
     this.modalService
       .open(contentAdd, { ariaLabelledBy: 'modal-basic-title' })
       .result.then(
         (result) => {
+          
           this.closeResult = `Closed with: ${result}`;
         },
         (reason) => {
@@ -485,10 +488,37 @@ guardarResponsable():void{
         this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
       });
   }
-  /* para registar usuarios */
+  
+  /* %%%%%%%% */
+  /*Rellenar campos del formulario de crear Cuenta */
+  openForEdit(content5,item:any){
+    //llenar form para activar
+    this.idFirebaseActualizar = item.idFirebase;
+    this.actualizar = true;
+    if(this.actualizar = true){
+        this.datos.name= item.nombre;
+        this.datos.email = item.correoCorporativo;
+    }else{
+      this.actualizar = false;
+    }
+  
+    this.modalService
+      .open(content5, { ariaLabelledBy: 'modal-basic-title' })
+      .result.then(
+        (result) => {
+          this.closeResult = `Closed with: ${result}`;
+        },
+        (reason) => {
+          this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+        }
+      );
+  }
+
+ 
+   /*Para Crear Cuenta del empleado */
 
   async onAddUser(){
-    
+     
     let params={
       email:this.datos.email,
       password:this.datos.password,
