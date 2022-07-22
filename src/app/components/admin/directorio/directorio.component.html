@@ -64,12 +64,8 @@
       <td>{{item.Telefono_familiar}}</td>
       <td>{{item.activo}}</td>
       <td class="p-1" style="margin-left: 2px;">
-<!--        <button type="button" class="btn btn-outline-dark" (click)="openEditar(content,item)">Editar</button>
-       <button type="button" class="btn btn-outline-dark" (click)="editarStatus(content2,item)">Cambiar Estatus</button>
-       <button type="button" class="btn btn-outline-dark" (click)="openEditar(content,item)">Crear cuenta </button> -->
        <i class="bi bi-pencil-square" style="font-size: 200%; margin-right: 6px;" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar" (click)="openEditar(content,item)"></i>
-       <i class="bi bi-person-plus" style="font-size: 200%;" data-bs-toggle="tooltip" data-bs-placement="top" title="Crear Cuenta"(click)="openEditar(content5,item)"></i>
-
+       <i class="bi bi-person-plus" style="font-size: 200%;" data-bs-toggle="tooltip" data-bs-placement="top" title="Crear Cuenta"(click)="openForEdit(content5,item)"></i>
       </td>
   </tr>
     
