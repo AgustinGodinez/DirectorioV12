@@ -75,7 +75,7 @@
     
     <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
     
-    <!--Modal 1-->
+      <!--Modal 1-->
     <ng-template #content let-modal>
       <div class="modal-header">
         <h4 class="modal-title" id="modal-basic-title">Editar Empleado</h4>
@@ -88,19 +88,41 @@
             <div class="form-group">
               <label>Nombre Completo</label>
               <input type="text" formControlName="nombre" class="form-control">
+              <div *ngIf="employeeForm.get('nombre')?.touched && employeeForm.get('nombre')?.errors?.['required']"
+              class="alert alert-danger">Este nombre es requerido</div>
             </div>
             <div class="form-group">
               <label>Correo_personal</label>
               <input type="email" formControlName="correoPersonal" class="form-control">
+              <div *ngIf="employeeForm.get('correoPersonal')?.touched  && employeeForm.get('correoPersonal')?.errors?.['required']"
+              class="alert alert-danger">
+                El email es requerido
+              </div>
+              <div *ngIf="employeeForm.get('correoPersonal')?.touched && employeeForm.get('correoPersonal')?.errors?.['email']"
+              class="alert alert-warning">
+                El email es incorrecto
+              </div>
             </div>
             <div class="form-group">
               <label>Correo_corporativo</label>
               <input type="email" formControlName="correoCorporativo" class="form-control">
+              <div *ngIf="employeeForm.get('correoCorporativo')?.touched && employeeForm.get('correoCorporativo')?.errors?.['required']"
+              class="alert alert-danger">
+                El email es requerido
+              </div>
+              <div *ngIf="employeeForm.get('correoCorporativo')?.touched && employeeForm.get('correoCorpprativo')?.errors?.['email']"
+              class="alert alert-warning">
+                El email es incorrecto
+              </div>
             </div>
   
             <div class="form-group">
-              <label>Telefono</label>
+              <label>Teléfono</label>
               <input type="text" formControlName="telefono" class="form-control">
+              <div *ngIf="employeeForm.get('telefono')?.touched && employeeForm.get('telefono')?.errors?.['required']"
+              class="alert alert-danger">
+                El teléfono es requerido
+              </div>
             </div>
   
             <div class="form-group">
@@ -118,7 +140,8 @@
               <input type="text" id="proyectos" list="listaProyectos" class="form-control" [(ngModel)]="filterProyectos" formControlName="proyecto_asignado">
             <datalist id="listaProyectos" *ngIf="filterProyectos">
               <option *ngFor="let item of collection2.data2 | pipeUser:filterProyectos | paginate:configProyect">{{item.proyecto_asignado2}}</option>
-            </datalist> 
+            </datalist>
+            
             </div>
            
             <div >
@@ -150,6 +173,10 @@
               <option >NO</option>
               <option >SI</option>
             </select>
+            <div *ngIf="employeeForm.get('activo')?.touched && employeeForm.get('activo')?.errors?.['required']"
+            class="alert alert-danger">
+             Este campo es requerido
+            </div> 
             </div>
             <br/>
             <div class="form-group">
@@ -157,14 +184,16 @@
             </div>
             <br/>
             <div class="form-group">
-              <label>Nombre</label>
+              <label>Nombre </label>
               <input type="text" formControlName="Nombre_familiar" class="form-control">
             </div>
             <div class="form-group">
-              <label>Telefono de Emergencia</label>
+              <label>Teléfono de emergencia</label>
               <input type="text" formControlName="Telefono_familiar" class="form-control">
             </div>
-            
+            <div *ngIf="employeeForm.get('Telefono_familiar')?.touched && employeeForm.get('Telefono_familiar')?.errors?.['required']"
+            class="alert alert-danger">
+              El télefono es requerido</div>
           </form>
     
        </div>
@@ -189,19 +218,43 @@
             <div class="form-group">
               <label>Nombre Completo</label>
               <input type="text" formControlName="nombre" class="form-control">
+              <div *ngIf="employeeForm.get('nombre')?.touched && employeeForm.get('nombre')?.errors?.['required']"
+              class="alert alert-danger">
+                El nombre es requerido
+              </div>
             </div>
             <div class="form-group">
               <label>Correo_personal</label>
               <input type="email" formControlName="correoPersonal" class="form-control"  >
+              <div *ngIf="employeeForm.get('correoPersonal')?.touched && employeeForm.get('correoPersonal')?.errors?.['required']"
+              class="alert alert-danger">
+                El email es requerido
+              </div>
+              <div *ngIf="employeeForm.get('correoPersonal')?.touched && employeeForm.get('correoPersonal')?.errors?.['email']"
+              class="alert alert-warning">
+                El email es incorrecto
+              </div>
             </div>
             <div class="form-group">
               <label>Correo_corporativo</label>
               <input type="email" formControlName="correoCorporativo" class="form-control">
+              <div *ngIf="employeeForm.get('correoCorporativo')?.touched && employeeForm.get('correoCorporativo')?.errors?.['required']"
+              class="alert alert-danger">
+                El email es requerido
+              </div>
+              <div *ngIf="employeeForm.get('correoCorporativo')?.touched && employeeForm.get('correoCorporativo')?.errors?.['email']"
+              class="alert alert-warning">
+                El email es incorrecto
+              </div>
             </div>
   
             <div class="form-group">
-              <label>Telefono</label>
+              <label>Teléfono</label>
               <input type="text" formControlName="telefono" class="form-control">
+              <div *ngIf="employeeForm.get('telefono')?.touched && employeeForm.get('telefono')?.errors?.['required']"
+              class="alert alert-danger">
+                El teléfono es requerido
+              </div>
             </div>
   
             <div class="form-group">
@@ -243,6 +296,10 @@
               <option >NO</option>
               <option >SI</option>
             </select>
+            <div *ngIf="employeeForm.get('activo')?.touched  && employeeForm.get('activo')?.errors?.['required']"
+            class="alert alert-danger">
+              Este campo es requerido
+            </div>
             </div>
             <br/>
             <div class="form-group">
@@ -254,8 +311,11 @@
               <input type="text" formControlName="Nombre_familiar" class="form-control">
             </div>
             <div class="form-group">
-              <label>Telefono de Emergencia</label>
+              <label>Teléfono de Emergencia</label>
               <input type="text" formControlName="Telefono_familiar" class="form-control">
+              <div *ngIf="employeeForm.get('telefono')?.touched && employeeForm.get('telefono')?.errors?.['required']" class="alert alert-danger" >
+                El teléfono es requerido
+              </div>
             </div>
             
           </form>
@@ -263,10 +323,9 @@
        </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-outline-dark" (click)="guardarEmpleado()">Guardar</button>
+        <button type="button" class="btn btn-outline-dark"  (click)="guardarEmpleado()">Guardar</button>
       </div>
     </ng-template>
-  
     
     </div>
   
