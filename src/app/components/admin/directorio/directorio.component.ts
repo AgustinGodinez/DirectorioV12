@@ -272,6 +272,11 @@ closeClick(){
 this.employeeForm.reset();
 this.modalService.dismissAll();
 }
+ /* %%%%%%% Limpiar campo de password y roles %%%%%%*/
+closeClick2(){
+ this.datos.password = "";
+ this.datos.roles.rol = "";
+}
 
 //Agregar responsable directo
 guardarResponsable():void{
@@ -492,6 +497,8 @@ guardarResponsable():void{
   /* %%%%%%%% */
   /*Rellenar campos del formulario de crear Cuenta */
   openForEdit(content5,item:any){
+    this.datos.password = "";
+    this.datos.roles.rol = "";
     //llenar form para activar
     this.idFirebaseActualizar = item.idFirebase;
     this.actualizar = true;
