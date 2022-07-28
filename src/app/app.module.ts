@@ -26,7 +26,7 @@ import { NgbModule, NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgToastModule } from 'ng-angular-popup';
 import { ResetPassComponent } from './components/reset-pass/reset-pass.component';
 import { HttpClientModule } from '@angular/common/http'
-
+import { FilterHomePipe } from './pipes/filter-home.pipe';
 
 
 @NgModule({
@@ -42,7 +42,8 @@ import { HttpClientModule } from '@angular/common/http'
     PipeAdminPipe,
     PipeUserFilterPipe,
     PipeUserPipe,
-    ResetPassComponent
+    ResetPassComponent,
+    FilterHomePipe
   ],
   imports: [
     BrowserModule,
