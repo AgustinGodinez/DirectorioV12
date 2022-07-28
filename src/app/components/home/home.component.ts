@@ -28,6 +28,7 @@ export class HomeComponent implements OnInit {
   constructor(public modalService: NgbModal, public fb:FormBuilder, private firebaseServiceService:FirebaseServiceService,private authService: AuthService) { }
 
   filterUsers = '';
+  filterUsers2 = '';
     config:any;
      
     collection={count:0, data:[]}
