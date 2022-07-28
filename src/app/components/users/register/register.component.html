@@ -8,6 +8,7 @@
             <div class="text-end">
                 <img src='../assets/img/sit (3).png' width="80" alt="">
             </div>
+            <h2 class="fw-bold text-center  pt-3">Exclusivo para Administrador</h2>
             <h2 class="fw-bold text-center  pt-3">Registrate</h2>
             <!-- login -->
             <form id="registerForm" (ngSubmit)="onAddUser()" >
@@ -47,13 +48,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="mb-4">
-                    <label for="password" class="form-label">Rol:</label>
-                    <select  class="form-control mx-1" [(ngModel)]="datos.roles.rol"  name="roles">
-                        <option  value=admin>Administrador</option>
-                        <option  value=Usuario>Usuario</option>
-                      </select>
-                </div>
+                
                 
                 <div class="d-grid">
                     <button id="btnSubmit" type="submit" class="btn btn-primary" [disabled]="(passwordLocal.touched ||emailLocal.touched ||nameLocal.touched) &&(passwordLocal.invalid || emailLocal.invalid || nameLocal.invalid)">Registrarse</button>
