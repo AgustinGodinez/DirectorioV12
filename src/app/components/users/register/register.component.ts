@@ -45,7 +45,7 @@ export class RegisterComponent implements OnInit {
       this.datos.id=id;
       this.datos.name=this.datos.name;
       this.datos.password= this.datos.password;
-      this.datos.roles=this.datos.roles
+      this.datos.roles.rol = "admin";
       await this.userdb.createDoc(this.datos,path,id);
 
      this.authService.isAuth().subscribe(user =>{
