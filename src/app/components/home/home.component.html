@@ -3,12 +3,14 @@
     <h2>Lista de Empleados</h2>
     <br/>
     <br/>
-    <h5> Por Responsable Directo</h5>
-    <select [(ngModel)]="filterUsers2">
-      <option  *ngFor="let item of  collection.data | pipeUserFilter:filterUsers">
-      {{item.nombre}}
-      </option>
-    </select>
+    <div class="text-center" >
+      <p>Hola {{user.name}}, estos son sus subordinados si desea ver el equipo de trabajo de cada subordinado seleccione el nombre: <select   [(ngModel)]="filterUsers2">
+        <option selected>Elegir nombre</option>
+        <option  *ngFor="let item of  collection.data | pipeUserFilter:filterUsers">
+        {{item.nombre}}
+        </option>
+      </select><p>
+    </div>
     <br/>
   <table class="table table-striped">
   <thead class="table-dark">
@@ -45,16 +47,16 @@
   <table class="table table-striped">
     <thead >
       <tr>
-          <th class="column"></th>
-          <th class="column"></th>
-          <th class="column"></th>
-          <th class="column"></th>
-          <th class="column"></th>
-          <th class="column "></th>
-          <th class="column"></th>
-          <th class="column"></th>
-          <th class="column"></th>  
-          <th class="column"></th>
+        <th>Nombre Completo</th>
+        <th>Correo_personal</th>
+        <th>Correo_corporativo</th>
+        <th>Telefono_contacto</th>
+        <th>Fecha_Nacimiento</th>
+        <th>Proyecto_asignado</th>
+        <th>Fecha_incorporación</th>
+        <th>Fecha_baja</th>
+        <th>Responsable_directo</th>  
+        <th>Activo</th>
         
       </tr>
     </thead>
