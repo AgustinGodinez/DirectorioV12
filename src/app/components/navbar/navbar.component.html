@@ -22,7 +22,6 @@
           </li> -->
         </ul>
           <ul class="navbar-nav ms-auto">
-            <a data-bs-dismiss="offcanvas" aria-label="Close" class="nav-link active" routerLink="/register" >Registro</a>
             <a data-bs-dismiss="offcanvas" aria-label="Close" class="nav-link active" routerLink="/login" *ngIf="!isLogged">Sesion</a>
             <li class="nav-item" *ngIf="isLogged" >
               <a href="#" data-bs-dismiss="offcanvas" aria-label="Close" class="nav-link active" (click)="onLogout()">Logout
