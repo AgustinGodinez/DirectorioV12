@@ -262,7 +262,7 @@
               <input type="date" formControlName="fecha_nacimiento" class="form-control">
             </div>
             <div class="form-group">
-              <label>Seleccionar Proyecto: </label>
+              <label>Aisgnar Proyecto: </label>
               
               <input type="text" id="proyectos" list="listaProyectos" class="form-control" [(ngModel)]="filterProyectos" formControlName="proyecto_asignado">
             <datalist id="listaProyectos" *ngIf="filterProyectos">
@@ -279,28 +279,14 @@
               <input type="date" formControlName="fecha_baja" class="form-control">
             </div>
             <div class="form-group">
-              <label> Seleccionar Responsable Directo </label>
-              <input type="text" id="usuarios" list="listaUsuarios" class="form-control" [(ngModel)]="filterPost" formControlName="responsable_directo">
+              <label> Asignar Responsable Directo </label>
+              <input type="text" id="usuarios" list="listaUsuarios" class="form-control" [(ngModel)]="filterPost" formControlName="responsable_directo" >
             <datalist id="listaUsuarios" *ngIf="filterPost">
               <option *ngFor="let item of collection.data | filter:filterPost| paginate:config2">{{item.nombre}}</option>
+              
             </datalist> 
           </div>
-          <div class="form-group">
-            <label>Agregar Nuevo Responsable Directo </label>
-            <input type="text"  class="form-control"  formControlName="responsable_directo">
-        </div>
-            <div class="form-group">
-              <label>Activo: </label>
-            <select class="form-select" aria-label="Default select example" style="width: 70%; margin-left:10px" class="form-control" formControlName="activo">
-              <option selected ></option>
-              <option >NO</option>
-              <option >SI</option>
-            </select>
-            <div *ngIf="employeeForm.get('activo')?.touched  && employeeForm.get('activo')?.errors?.['required']"
-            class="alert alert-danger">
-              Este campo es requerido
-            </div>
-            </div>
+
             <br/>
             <div class="form-group">
               <h2>Contacto de Emergencia</h2>
