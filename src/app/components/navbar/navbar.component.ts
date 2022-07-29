@@ -58,7 +58,7 @@ export class NavbarComponent implements OnInit {
     Notiflix.Loading.standard('Cargando...')
     Notiflix.Loading.remove(2000);
     this.afsAuth.signOut()
-    this.router.navigate(['register'])
+    this.router.navigate(['login'])
   }
 
 }
