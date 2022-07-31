@@ -538,7 +538,7 @@ guardarResponsable():void{
       const id =resp;
       this.datos.id=id;
       this.datos.name=this.datos.name;
-      this.datos.password= this.datos.password;
+      this.datos.password= null;
       this.datos.roles=this.datos.roles;
       this.userdb.createDoc(this.datos,path,id);
     })
