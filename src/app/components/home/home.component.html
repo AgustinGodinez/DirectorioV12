@@ -4,7 +4,7 @@
     <br/>
     <br/>
     <div class="text-center" >
-      <p>Hola {{user.name}}, estos son sus subordinados si desea ver el equipo de trabajo de cada subordinado seleccione el nombre: <select   [(ngModel)]="filterUsers2">
+      <p>Hola {{user.name}}, estos son los miembros de su equipo, si desea ver el equipo de trabajo de cada uno de los miembros de su equipo seleccione el nombre: <select   [(ngModel)]="filterUsers2">
         <option selected>Elegir nombre</option>
         <option  *ngFor="let item of  collection.data | pipeUserFilter:filterUsers">
         {{item.nombre}}
