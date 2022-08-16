@@ -9,7 +9,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { ResetPassComponent } from './components/reset-pass/reset-pass.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path:'home', component: HomeComponent },// todo el mundo
   { path:'directorio', component: DirectorioComponent, canActivate:[AuthGuard]},// only user auth
   { path:'login', component: LoginComponent },
