@@ -16,7 +16,7 @@ import { PipeUserPipe } from './pipes/pipe-user.pipe';
 
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from "@angular/forms"; 
-import { environment } from '../environments/environment';
+import { environment } from '../environments/environment.prod';
 import {AngularFireModule} from '@angular/fire/compat';
 import {AngularFirestore, AngularFirestoreModule} from '@angular/fire/compat/firestore';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
