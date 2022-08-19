@@ -9,14 +9,14 @@ import { AuthGuard } from './guards/auth.guard';
 import { ResetPassComponent } from './components/reset-pass/reset-pass.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path:'home', component: HomeComponent },// todo el mundo
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path:'home', component: HomeComponent,  canActivate:[AuthGuard] },// todo el mundo
   { path:'directorio', component: DirectorioComponent, canActivate:[AuthGuard]},// only user auth
   { path:'login', component: LoginComponent },
   { path:'users', component: ListUsersComponent, canActivate:[AuthGuard]},
   { path:'register', component: RegisterComponent },
   { path:'reset', component: ResetPassComponent },
-  {path:'**', redirectTo:'/home', pathMatch:'full'}
+  {path:'**', redirectTo:'/login', pathMatch:'full'}
 ];
 
 @NgModule({
